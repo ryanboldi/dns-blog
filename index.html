@@ -28,19 +28,70 @@
 
     <!-- Main Content -->
     <div class="main-wrapper">
+        <!-- Header teaser banner -->
+        <div class="header-banner">
+            <img src="images/dns_header_banner.png" alt="DNS t-SNE embedding with sample portraits">
+        </div>
+
         <header>
             <h1 class="title">The MAP-Elites Grid is Dead.<br>Long Live Dominated Novelty Search!</h1>
-            <div class="authors">
-                Ryan Bahlous-Boldi<span class="equal-contrib">*</span>, Maxence Faldor<span class="equal-contrib">*</span>
+
+            <div class="author-list">
+                <a href="https://ryanboldi.github.io" class="author-link highlighted">Ryan Bahlous-Boldi*<sup>1</sup></a>
+                <span class="separator">·</span>
+                <a href="https://maxencefaldor.github.io" class="author-link highlighted">Maxence Faldor*<sup>2</sup></a>
             </div>
-            <div class="equal-note">
-                <span class="equal-contrib">*</span>Equal contribution
+            <div class="author-list secondary">
+                <a href="https://lucagrillotti.github.io" class="author-link">Luca Grillotti<sup>2</sup></a>
+                <span class="separator">·</span>
+                <a href="#" class="author-link">Hannah Janmohamed<sup>2</sup></a>
+                <span class="separator">·</span>
+                <a href="#" class="author-link">Lisa Coiffard<sup>2</sup></a>
+                <span class="separator">·</span>
+                <a href="https://lspector.github.io" class="author-link">Lee Spector<sup>3</sup></a>
+                <span class="separator">·</span>
+                <a href="https://www.antoinecully.com" class="author-link">Antoine Cully<sup>2</sup></a>
             </div>
-            <div class="affiliation">
-                Blog post for: <a href="https://arxiv.org/abs/2502.00593">arXiv:2502.00593</a><br>
-                <em>Paper authors: Ryan Bahlous-Boldi, Maxence Faldor, Luca Grillotti, Hannah Janmohamed, Lisa Coiffard, Lee Spector, and Antoine Cully</em>
+            <div class="affiliations">
+                <span class="affiliation-item"><sup>1</sup>MIT CSAIL</span>
+                <span class="affiliation-item"><sup>2</sup>Imperial College London</span>
+                <span class="affiliation-item"><sup>3</sup>Amherst College</span>
+            </div>
+
+            <div class="paper-links">
+                <a href="https://arxiv.org/abs/2502.00593" class="paper-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Paper
+                </a>
+                <a href="https://github.com/adaptive-intelligent-robotics/QDax" class="paper-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    QDax
+                </a>
+                <a href="https://github.com/icaros-usc/pyribs" class="paper-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    PyRibs
+                </a>
+            </div>
+
+            <div class="paper-authors">
+                GECCO 2025
             </div>
         </header>
+
+        <style>
+            .header-banner {
+                max-width: 1600px;
+                margin: 0 auto 20px;
+                padding-top: 40px;
+                text-align: center;
+            }
+            .header-banner img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+        </style>
 
         <main>
             <!-- Abstract / Hook -->
@@ -60,24 +111,26 @@
                     impossible?
                 </p>
             </div>
+        </main>
 
-            <!-- TODO: Opening figure - side-by-side comparison of MAP-Elites grid vs DNS continuous space -->
-            <div class="opening-figure" id="figure1">
-                <div class="figure-title">Figure 1: Breaking Out of the Grid</div>
-                <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
-                    <p style="color: #666; font-style: italic;">
-                        [PLACEHOLDER: Visual comparison]<br><br>
-                        Left: MAP-Elites grid with discrete cells<br>
-                        Right: DNS population in continuous descriptor space<br><br>
-                        Show how DNS adapts to the natural shape of the descriptor space
-                    </p>
-                </div>
-                <div class="figure-caption">
-                    <strong>Figure 1.</strong> MAP-Elites forces solutions into a predefined grid, while Dominated Novelty Search
-                    maintains a population that naturally adapts to the reachable regions of the descriptor space.
-                </div>
+        <!-- Figure 1 - Full width outside main -->
+        <div class="wide-figure" id="figure1">
+            <div class="figure-title">Figure 1: Breaking Out of the Grid</div>
+            <div style="text-align: center; padding: 20px;">
+                <img src="images/DNS_diagram_v4.pdf" alt="DNS Diagram" style="max-width: 100%; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <p style="color: #666; font-style: italic; display: none;">
+                    The MAP-Elites grid is limited when the descriptor space: (a) has complex topology,
+                    (b) is discontinuous, (c) is unbounded, or (d) is high-dimensional.
+                </p>
             </div>
+            <div class="figure-caption">
+                <strong>Figure 1.</strong> The MAP-Elites grid struggles when the achievable descriptor space
+                has complex topological shapes, is discontinuous, unbounded, or high-dimensional.
+                Dominated Novelty Search adapts dynamically to the natural structure of the solution space.
+            </div>
+        </div>
 
+        <main>
             <article>
                 <!-- Introduction -->
                 <section id="intro">
@@ -120,28 +173,11 @@
                         Each cell can hold exactly one solution: the best one found for that region. This is elegant and
                         simple, but it comes with fundamental limitations:
                     </p>
-
-                    <h3>2.1. The Dimensionality Problem</h3>
-                    <p>
-                        Grids scale exponentially with dimension. A 10×10 grid in 2D has 100 cells. Add a third dimension
-                        and you have 1,000 cells. With 10 dimensions, you need 10 billion cells. With the 512-dimensional
-                        CLIP embeddings we use in our experiments? You'd need $10^{512}$ cells, more than the number of
-                        atoms in the observable universe.
-                    </p>
-
-                    <h3>2.2. The Bounds Problem</h3>
-                    <p>
-                        Traditional QD algorithms require you to specify bounds in advance: "poses range from -90° to +90°"
-                        or "lighting ranges from dark to bright." But what if you don't know the bounds? What if you're
-                        working with learned embeddings like CLIP where dimensions have no human-interpretable meaning?
-                    </p>
-
-                    <h3>2.3. The Discretization Problem</h3>
-                    <p>
-                        Forcing continuous descriptor spaces into discrete cells throws away information. Two solutions
-                        at opposite corners of the same cell are treated as "the same location," even though they might
-                        be quite different. This limits the granularity of diversity that can be achieved.
-                    </p>
+                    <ul>
+                        <li><strong>The Dimensionality Problem:</strong> Grids scale exponentially with dimension. A 10×10 grid in 2D has 100 cells. Add a third dimension and you have 1,000 cells. With 10 dimensions, you need 10 billion cells. With the 512-dimensional CLIP embeddings we use in our experiments? You'd need $10^{512}$ cells, more than the number of atoms in the observable universe.</li>
+                        <li><strong>The Bounds Problem:</strong> Traditional QD algorithms require you to specify bounds in advance: "poses range from -90° to +90°" or "lighting ranges from dark to bright." But what if you don't know the bounds? What if you're working with learned embeddings like CLIP where dimensions have no human-interpretable meaning?</li>
+                        <li><strong>The Discretization Problem:</strong> Forcing continuous descriptor spaces into discrete cells throws away information. Two solutions at opposite corners of the same cell are treated as "the same location," even though they might be quite different. This limits the granularity of diversity that can be achieved.</li>
+                    </ul>
                 </section>
 
                 <!-- Section 3: The Algorithm -->
@@ -248,10 +284,10 @@
                         that DNS is just as elegant as the algorithms it replaces:
                     </p>
 
-                    <!-- TODO: Code comparison figure -->
-                    <div class="opening-figure" style="margin: 20px 0; max-width: 1100px; width: calc(100% + 200px); margin-left: -100px;">
+                    <!-- Code comparison figure -->
+                    <div class="opening-figure">
                         <div class="figure-title">Code Comparison: MAP-Elites vs DNS</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 20px 40px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 20px 60px; max-width: 1000px; margin: 0 auto;">
                             <div style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 4px; font-family: monospace; font-size: 10pt;">
                                 <div style="color: #569cd6; margin-bottom: 8px;"># MAP-Elites</div>
                                 <pre style="margin: 0; white-space: pre-wrap;">
@@ -302,42 +338,130 @@ def dns(pop, k=3):
                 <section id="benchmarks">
                     <h2>5. Benchmark Results</h2>
                     <p>
-                        We evaluated DNS against MAP-Elites and other QD algorithms across standard benchmarks.
-                        DNS significantly outperforms existing approaches while maintaining its advantage in
-                        challenging scenarios like high-dimensional and unsupervised descriptor spaces.
+                        We evaluated DNS against MAP-Elites, Threshold-Elites, and Cluster-Elites across standard
+                        continuous control benchmarks: Walker (bipedal locomotion), Ant (quadrupedal movement),
+                        and Ant Blocks (navigation with obstacles). Each experiment was repeated 10 times with
+                        different seeds, using Mann-Whitney U tests with Holm-Bonferroni correction for statistical significance.
                     </p>
 
-                    <!-- TODO: Benchmark results figure -->
                     <div class="opening-figure">
                         <div class="figure-title">Figure 3: Benchmark Performance</div>
-                        <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
-                            <p style="color: #666; font-style: italic;">
-                                [PLACEHOLDER: Benchmark results]<br><br>
-                                QD-Score curves across standard benchmarks<br>
-                                (Arm, Ant, Humanoid, etc.)<br><br>
-                                Show DNS outperforming MAP-Elites and other baselines
-                            </p>
+                        <div style="text-align: center; padding: 20px;">
+                            <img src="images/all_environments_metrics_plot_4.png" alt="Benchmark Results" style="max-width: 100%; height: auto;">
                         </div>
                         <div class="figure-caption">
-                            <strong>Figure 3.</strong> QD-Score over generations across standard benchmarks. DNS (green)
-                            significantly outperforms MAP-Elites (blue) and other baselines across all tested domains.
+                            <strong>Figure 3.</strong> QD-Score and Coverage over generations across MuJoCo environments.
+                            DNS significantly outperforms Threshold-Elites and Cluster-Elites across all environments ($p < 10^{-9}$),
+                            and outperforms MAP-Elites in Walker and Ant Blocks ($p < 10^{-3}$) where implicit constraints
+                            limit the reachable descriptor space.
                         </div>
                     </div>
+
+                    <p>
+                        Key findings from the benchmarks:
+                    </p>
+                    <ul>
+                        <li><strong>Walker:</strong> DNS significantly outperforms MAP-Elites because certain foot-contact
+                            proportions (like both feet never touching ground) are infeasible, leaving grid cells empty.</li>
+                        <li><strong>Ant Blocks:</strong> Obstacles create discontinuous descriptor spaces where some regions
+                            are unreachable, wasting MAP-Elites grid cells.</li>
+                        <li><strong>Ant:</strong> DNS and MAP-Elites perform competitively when the descriptor space
+                            (final x,y position) aligns well with a 2D grid.</li>
+                    </ul>
                 </section>
 
-                <!-- Section 6: The Real Test - High-Dimensional Descriptors -->
-                <section id="diffusion">
-                    <h2>6. The Real Test: 512-Dimensional Descriptor Spaces</h2>
+                <!-- Section 6: High-Dimensional Descriptor Spaces -->
+                <section id="high-dim">
+                    <h2>6. Scaling to High-Dimensional Descriptor Spaces</h2>
                     <p>
                         Standard benchmarks use 2-4 dimensional descriptor spaces where grids are feasible.
-                        But what happens when we push into territory where grids are fundamentally impossible?
-                    </p>
-                    <p>
-                        We designed an experiment to test DNS in a 512-dimensional descriptor space: evolving
-                        Stable Diffusion latent vectors to generate diverse portraits of a specific person.
+                        But what happens when we push into territory where grids become impractical?
                     </p>
 
-                    <h3>6.1. The Challenge: Diverse Portraits of Tom Cruise</h3>
+                    <h3>6.1. The Kheperax Maze Challenge</h3>
+                    <p>
+                        We tested DNS on the Kheperax environment: a maze navigation task where agents must
+                        traverse complex mazes. Unlike traditional maze tasks that only consider final position,
+                        we characterize behavior using the agent's <em>entire trajectory</em> through the maze.
+                    </p>
+                    <p>
+                        By sampling the agent's position at $n$ evenly-spaced intervals, we create descriptors
+                        with $2n$ dimensions. With $n=30$ trajectory points, we get a 60-dimensional descriptor space.
+                        This trajectory-based approach captures richer behavioral information, but creates
+                        significant challenges for grid-based methods.
+                    </p>
+
+                    <h3>6.2. Why Grids Struggle</h3>
+                    <p>
+                        As dimensionality increases, the curse of dimensionality hits hard:
+                    </p>
+                    <ul>
+                        <li><strong>Exponential cell growth:</strong> A grid with just 10 bins per dimension
+                            would need $10^{60}$ cells for a 60D descriptor space.</li>
+                        <li><strong>Infeasible combinations:</strong> Most trajectory combinations are physically
+                            impossible (e.g., the robot teleporting across the maze between consecutive steps).</li>
+                        <li><strong>Wasted resources:</strong> Grid cells allocated to unreachable regions
+                            reduce the effective population size.</li>
+                    </ul>
+
+                    <h3>6.3. Results: Scaling with Dimensionality</h3>
+                    <div class="opening-figure">
+                        <div class="figure-title">Figure 4: Performance vs. Descriptor Dimensionality</div>
+                        <div style="text-align: center; padding: 20px;">
+                            <img src="images/kheperax_other_mean.png" alt="Kheperax Dimensionality Results" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="figure-caption">
+                            <strong>Figure 4.</strong> QD-Score and Coverage as descriptor dimensionality increases
+                            (from 2 to 100 trajectory points). DNS significantly outperforms all baselines for most
+                            dimensionalities ($p < 0.05$), demonstrating robustness to the curse of dimensionality.
+                        </div>
+                    </div>
+
+                    <p>
+                        The results show that DNS maintains strong performance as dimensionality increases,
+                        while MAP-Elites suffers from discretization inefficiencies. DNS can adapt its search
+                        to the currently reachable portions of the descriptor space, leading to more effective
+                        stepping-stone discovery even in high dimensions.
+                    </p>
+
+                    <h3>6.4. Unsupervised Descriptors</h3>
+                    <p>
+                        What if you don't know the descriptor space at all? In unsupervised QD (following the
+                        AURORA algorithm), descriptors are learned as low-dimensional embeddings during evolution.
+                        The space changes as the algorithm runs, making predefined bounds impossible.
+                    </p>
+
+                    <div class="opening-figure">
+                        <div class="figure-title">Figure 5: Unsupervised Descriptor Space</div>
+                        <div style="text-align: center; padding: 20px;">
+                            <img src="images/kheperax_aurora_mean.png" alt="Kheperax AURORA Results" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="figure-caption">
+                            <strong>Figure 5.</strong> Performance with learned (unsupervised) descriptors.
+                            DNS significantly outperforms other methods in both QD-Score and Coverage ($p < 0.05$).
+                            MAP-Elites cannot be applied since it requires predefined, fixed bounds.
+                        </div>
+                    </div>
+
+                    <p>
+                        This is where DNS truly shines: it adapts to learned descriptor spaces that are
+                        unbounded and changing throughout evolution. MAP-Elites, which requires predefined
+                        grids, simply cannot be applied in this scenario. Threshold-Elites requires complex
+                        container size control mechanisms, while DNS achieves strong performance with its
+                        simple competition mechanism.
+                    </p>
+                </section>
+
+                <!-- Section 7: Application - Diverse Image Generation -->
+                <section id="diffusion">
+                    <h2>7. Application: Diverse Portrait Generation with Stable Diffusion</h2>
+                    <p>
+                        The Kheperax experiments show DNS works in high dimensions, but let's push further.
+                        What about 512-dimensional CLIP embeddings? This is where DNS enables applications
+                        that were previously impossible with grid-based QD.
+                    </p>
+
+                    <h3>7.1. The Challenge: Diverse Portraits of Tom Cruise</h3>
                     <p>
                         When you ask Stable Diffusion to generate "a portrait of Tom Cruise," you get the same image
                         over and over. Minor pixel variations exist, but the pose, lighting, expression, and style all
@@ -349,25 +473,7 @@ def dns(pop, k=3):
                         while ensuring every image actually looks like that person?
                     </p>
 
-                    <!-- TODO: Mode collapse comparison figure -->
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 4: The Mode Collapse Problem</div>
-                        <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
-                            <p style="color: #666; font-style: italic;">
-                                [PLACEHOLDER: Mode collapse visualization]<br><br>
-                                Grid of ~50 images generated from the same prompt with different seeds<br>
-                                "A portrait of Tom Cruise"<br><br>
-                                All look nearly identical despite different random seeds
-                            </p>
-                        </div>
-                        <div class="figure-caption">
-                            <strong>Figure 4.</strong> Standard Stable Diffusion generates nearly identical images
-                            despite using 50 different random seeds. This is mode collapse: the model always converges
-                            to the same "average" output.
-                        </div>
-                    </div>
-
-                    <h3>6.2. The Dual-Embedding Approach</h3>
+                    <h3>7.2. The CLIP-Based Approach</h3>
                     <p>
                         The key insight is that text prompts are a crude steering wheel. The real magic happens in
                         <em>latent space</em>, the high-dimensional mathematical space where Stable Diffusion "thinks."
@@ -377,41 +483,46 @@ def dns(pop, k=3):
                     </p>
                     <p>
                         We treat image generation as an evolutionary optimization problem. Instead of evolving living
-                        creatures, we evolve latent vectors. For each generated image, we ask two questions using
-                        specialized AI models:
+                        creatures, we evolve latent vectors. For each generated image, CLIP provides both our fitness
+                        and diversity measures:
                     </p>
 
                     <table class="data-table" style="max-width: 600px; margin: 20px auto;">
                         <thead>
                             <tr>
-                                <th>Purpose</th>
-                                <th>Model</th>
+                                <th>Role</th>
                                 <th>What It Measures</th>
+                                <th>Source</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Fitness</strong></td>
-                                <td>InsightFace (ArcFace)</td>
-                                <td>Identity: is this actually Tom Cruise?</td>
+                                <td>"Is this Tom Cruise?"</td>
+                                <td>CLIP text-image cosine similarity</td>
                             </tr>
                             <tr>
-                                <td><strong>Diversity</strong></td>
-                                <td>CLIP (ViT-B/32)</td>
-                                <td>Attributes: pose, lighting, style, expression (512-dim)</td>
+                                <td><strong>Descriptor</strong></td>
+                                <td>"What variant is it?"</td>
+                                <td>CLIP image embedding (pose, lighting, style)</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <p>
-                        This separation is crucial because identity and visual diversity are orthogonal concepts.
-                        Two images can look completely different (different poses, lighting, styles) while showing
-                        the same person. By using InsightFace for fitness, we ensure evolution optimizes toward images
-                        that actually look like Tom Cruise. By using CLIP for diversity (512 dimensions!), we ensure
-                        evolution explores the full range of visual variations.
+                        We first encode the target text "Tom Cruise" with CLIP's text encoder, giving us a 512-dimensional
+                        reference vector. For each generated image, we compute its CLIP image embedding. The fitness is
+                        simply the cosine similarity between the image embedding and the text embedding—higher similarity
+                        means the image better matches "Tom Cruise." The descriptor is the image embedding itself, capturing
+                        all the visual attributes like pose, lighting, and style in 512 dimensions.
+                    </p>
+                    <p>
+                        DNS then selects for individuals that are both high-fitness AND diverse: you survive if you're
+                        novel compared to solutions that beat you on fitness. This elegantly balances identity preservation
+                        with visual diversity.
                     </p>
 
-                    <h3>6.3. Why This Couldn't Be Done Before</h3>
+                    <h3>7.3. Why This Couldn't Be Done Before</h3>
                     <p>
                         <strong>The Grid Problem:</strong> CLIP embeddings have 512 dimensions. Even with just 2 bins
                         per dimension, you'd need $2^{512}$ cells, more than atoms in the observable universe.
@@ -427,55 +538,342 @@ def dns(pop, k=3):
                         the population naturally explores.
                     </p>
 
-                    <h3>6.4. Results</h3>
+                    <h3>7.4. Results</h3>
 
-                    <!-- TODO: Evolution results figure -->
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 5: Evolution of Diverse Portraits</div>
-                        <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
-                            <p style="color: #666; font-style: italic;">
-                                [PLACEHOLDER: Evolution visualization]<br><br>
-                                Grid showing diverse Tom Cruise portraits generated by DNS<br>
-                                Different poses, lighting, expressions, styles, accessories<br>
-                                All verified as Tom Cruise by face recognition<br><br>
-                                Maybe: Animation showing evolution over generations
-                            </p>
+                    <!-- Interactive CLIP space visualization -->
+                    <div class="opening-figure" id="clip-viz-figure">
+                        <div class="figure-title">Figure 7: Population in CLIP Embedding Space (Interactive)</div>
+                        <div class="clip-viz-container">
+                            <div class="clip-viz-main">
+                                <canvas id="clip-canvas"></canvas>
+                                <div class="clip-hover-preview" id="clip-hover-preview">
+                                    <img id="clip-hover-img" src="" alt="">
+                                    <div class="clip-hover-info">
+                                        <span class="clip-hover-fitness" id="clip-hover-fitness"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clip-viz-legend">
+                                <div class="clip-legend-title">Identity Match (Fitness)</div>
+                                <div class="clip-color-bar"></div>
+                                <div class="clip-legend-labels">
+                                    <span>Low</span>
+                                    <span>High</span>
+                                </div>
+                                <div class="clip-stats">
+                                    <p><strong>5,000</strong> evolved portraits</p>
+                                    <p><strong>512-dim</strong> CLIP embeddings</p>
+                                    <p>Projected via <strong>t-SNE</strong></p>
+                                </div>
+                                <p class="clip-instruction">Hover over points to see portraits</p>
+                            </div>
                         </div>
                         <div class="figure-caption">
-                            <strong>Figure 5.</strong> After 2960 generations, DNS produces an archive of 5000 unique
-                            latent vectors, each generating a distinct Tom Cruise portrait. The population spans
-                            diverse poses, lighting conditions, expressions, and artistic styles, all while maintaining
-                            identity verification.
-                        </div>
-                    </div>
-
-                    <!-- TODO: CLIP space visualization -->
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 6: Population in CLIP Embedding Space</div>
-                        <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
-                            <p style="color: #666; font-style: italic;">
-                                [PLACEHOLDER: CLIP space visualization]<br><br>
-                                t-SNE or UMAP projection of the 512-dim CLIP embeddings<br>
-                                Show how DNS spreads the population across the space<br>
-                                Color by fitness (identity match score)<br><br>
-                                Compare to baseline (random sampling) if applicable
-                            </p>
-                        </div>
-                        <div class="figure-caption">
-                            <strong>Figure 6.</strong> Projection of the evolved population in CLIP embedding space.
+                            <strong>Figure 7.</strong> Projection of the evolved population in CLIP embedding space.
                             DNS spreads solutions across the reachable regions while maintaining high fitness (identity match).
                             No grid was needed; the algorithm naturally discovered the structure of the space.
+                            <em>Points colored by identity match score (yellow = higher match).</em>
                         </div>
                     </div>
 
-                    <p>
-                        The experiment ran for nearly 3000 generations, producing an archive of 5000 unique latent vectors.
-                        Each vector generates a distinct portrait that:
-                    </p>
-                    <ul>
-                        <li>Passes identity verification (high ArcFace similarity to Tom Cruise)</li>
-                        <li>Differs visually from other archive members (spread out in CLIP space)</li>
-                    </ul>
+                    <style>
+                        .clip-viz-container {
+                            display: flex;
+                            gap: 20px;
+                            padding: 20px;
+                            background: var(--bg-paper);
+                            justify-content: center;
+                            align-items: flex-start;
+                        }
+                        .clip-viz-main {
+                            position: relative;
+                            width: 700px;
+                            height: 700px;
+                            border: 1px solid var(--border-color);
+                            background: var(--bg-subtle);
+                        }
+                        #clip-canvas {
+                            width: 100%;
+                            height: 100%;
+                            cursor: crosshair;
+                        }
+                        .clip-hover-preview {
+                            position: absolute;
+                            display: none;
+                            pointer-events: none;
+                            z-index: 100;
+                            background: var(--bg-paper);
+                            border: 2px solid var(--border-color);
+                            border-radius: 4px;
+                            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                            overflow: hidden;
+                        }
+                        .clip-hover-preview.visible {
+                            display: block;
+                        }
+                        #clip-hover-img {
+                            width: 150px;
+                            height: 150px;
+                            object-fit: cover;
+                            display: block;
+                        }
+                        .clip-hover-info {
+                            padding: 6px 8px;
+                            font-size: 9pt;
+                            text-align: center;
+                            background: var(--bg-subtle);
+                            border-top: 1px solid var(--border-light);
+                        }
+                        .clip-hover-fitness {
+                            font-family: var(--font-mono);
+                            color: var(--text-secondary);
+                        }
+                        .clip-viz-legend {
+                            width: 140px;
+                            padding: 15px;
+                            background: var(--bg-subtle);
+                            border: 1px solid var(--border-light);
+                            border-radius: 4px;
+                        }
+                        .clip-legend-title {
+                            font-size: 9pt;
+                            font-weight: 700;
+                            margin-bottom: 8px;
+                            color: var(--text-primary);
+                        }
+                        .clip-color-bar {
+                            height: 12px;
+                            border-radius: 2px;
+                            background: linear-gradient(to right, #440154, #482878, #3e4a89, #31688e, #26828e, #1f9e89, #35b779, #6ece58, #b5de2b, #fde725);
+                            margin-bottom: 4px;
+                        }
+                        .clip-legend-labels {
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 8pt;
+                            color: var(--text-secondary);
+                            margin-bottom: 15px;
+                        }
+                        .clip-stats {
+                            font-size: 9pt;
+                            color: var(--text-secondary);
+                            line-height: 1.6;
+                        }
+                        .clip-stats p {
+                            margin: 4px 0;
+                            text-align: left;
+                        }
+                        .clip-stats strong {
+                            color: var(--text-primary);
+                        }
+                        .clip-instruction {
+                            font-size: 8pt;
+                            color: var(--text-secondary);
+                            font-style: italic;
+                            margin-top: 15px;
+                            text-align: center;
+                        }
+                        @media (max-width: 900px) {
+                            .clip-viz-container {
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .clip-viz-main {
+                                width: 100%;
+                                max-width: 500px;
+                                height: 500px;
+                            }
+                            .clip-viz-legend {
+                                width: 100%;
+                                max-width: 500px;
+                            }
+                        }
+                    </style>
+
+                    <script>
+                    (function() {
+                        let clipData = null;
+                        let clipCanvas, clipCtx;
+                        let clipHoveredIdx = -1;
+                        const POINT_SIZE = 3;
+                        const PADDING = 20;
+
+                        // Viridis color scale
+                        function viridisColor(t) {
+                            t = Math.max(0, Math.min(1, t));
+                            const colors = [
+                                [68, 1, 84], [72, 40, 120], [62, 74, 137], [49, 104, 142],
+                                [38, 130, 142], [31, 158, 137], [53, 183, 121], [110, 206, 88],
+                                [181, 222, 43], [253, 231, 37]
+                            ];
+                            const idx = t * (colors.length - 1);
+                            const i = Math.floor(idx);
+                            const f = idx - i;
+                            if (i >= colors.length - 1) return `rgb(${colors[colors.length-1].join(',')})`;
+                            const c1 = colors[i], c2 = colors[i + 1];
+                            return `rgb(${Math.round(c1[0] + f * (c2[0] - c1[0]))},${Math.round(c1[1] + f * (c2[1] - c1[1]))},${Math.round(c1[2] + f * (c2[2] - c1[2]))})`;
+                        }
+
+                        function drawClipViz() {
+                            if (!clipData || !clipCanvas) return;
+                            const container = document.querySelector('.clip-viz-main');
+                            const width = container.offsetWidth;
+                            const height = container.offsetHeight;
+                            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+                            clipCtx.fillStyle = isDark ? '#242424' : '#fafafa';
+                            clipCtx.fillRect(0, 0, width, height);
+
+                            const minFit = Math.min(...clipData.fitness);
+                            const maxFit = Math.max(...clipData.fitness);
+
+                            // Draw points
+                            for (let i = 0; i < clipData.n; i++) {
+                                const [nx, ny] = clipData.coords[i];
+                                const x = PADDING + nx * (width - 2 * PADDING);
+                                const y = PADDING + ny * (height - 2 * PADDING);
+                                const fitNorm = (clipData.fitness[i] - minFit) / (maxFit - minFit);
+
+                                clipCtx.beginPath();
+                                clipCtx.arc(x, y, i === clipHoveredIdx ? POINT_SIZE + 2 : POINT_SIZE, 0, Math.PI * 2);
+                                clipCtx.fillStyle = viridisColor(fitNorm);
+                                clipCtx.fill();
+
+                                if (i === clipHoveredIdx) {
+                                    clipCtx.strokeStyle = isDark ? '#fff' : '#000';
+                                    clipCtx.lineWidth = 2;
+                                    clipCtx.stroke();
+                                }
+                            }
+                        }
+
+                        function getClipPointAt(mx, my) {
+                            if (!clipData) return -1;
+                            const container = document.querySelector('.clip-viz-main');
+                            const width = container.offsetWidth;
+                            const height = container.offsetHeight;
+                            let closest = -1, minDist = 15;
+
+                            for (let i = 0; i < clipData.n; i++) {
+                                const [nx, ny] = clipData.coords[i];
+                                const x = PADDING + nx * (width - 2 * PADDING);
+                                const y = PADDING + ny * (height - 2 * PADDING);
+                                const dist = Math.sqrt((mx - x) ** 2 + (my - y) ** 2);
+                                if (dist < minDist) {
+                                    minDist = dist;
+                                    closest = i;
+                                }
+                            }
+                            return closest;
+                        }
+
+                        function showClipPreview(idx, clientX, clientY) {
+                            const preview = document.getElementById('clip-hover-preview');
+                            const img = document.getElementById('clip-hover-img');
+                            const fitness = document.getElementById('clip-hover-fitness');
+
+                            if (idx < 0) {
+                                preview.classList.remove('visible');
+                                return;
+                            }
+
+                            img.src = `dns_clip_web_viewer/images/${idx}.jpg`;
+                            fitness.textContent = `Identity: ${(clipData.fitness[idx] * 100).toFixed(1)}%`;
+                            preview.classList.add('visible');
+
+                            // Position preview near cursor but within bounds
+                            const container = document.querySelector('.clip-viz-main');
+                            const rect = container.getBoundingClientRect();
+                            let left = clientX - rect.left + 15;
+                            let top = clientY - rect.top - 75;
+
+                            // Keep within container bounds
+                            if (left + 160 > container.offsetWidth) left = clientX - rect.left - 170;
+                            if (top < 0) top = clientY - rect.top + 15;
+                            if (top + 180 > container.offsetHeight) top = container.offsetHeight - 185;
+
+                            preview.style.left = left + 'px';
+                            preview.style.top = top + 'px';
+                        }
+
+                        function initClipViz() {
+                            clipCanvas = document.getElementById('clip-canvas');
+                            if (!clipCanvas) return;
+
+                            clipCtx = clipCanvas.getContext('2d');
+
+                            // Set canvas resolution
+                            const container = document.querySelector('.clip-viz-main');
+                            const dpr = window.devicePixelRatio || 1;
+                            clipCanvas.width = container.offsetWidth * dpr;
+                            clipCanvas.height = container.offsetHeight * dpr;
+                            clipCtx.scale(dpr, dpr);
+
+                            // Load data
+                            fetch('dns_clip_web_viewer/metadata.json')
+                                .then(r => r.json())
+                                .then(data => {
+                                    clipData = data;
+                                    drawClipViz();
+                                })
+                                .catch(err => console.error('Failed to load CLIP data:', err));
+
+                            // Mouse events for hover preview
+                            clipCanvas.addEventListener('mousemove', (e) => {
+                                const rect = clipCanvas.getBoundingClientRect();
+                                const mx = e.clientX - rect.left;
+                                const my = e.clientY - rect.top;
+
+                                const idx = getClipPointAt(mx, my);
+                                if (idx !== clipHoveredIdx) {
+                                    clipHoveredIdx = idx;
+                                    drawClipViz();
+                                }
+                                showClipPreview(idx, e.clientX, e.clientY);
+                            });
+
+                            clipCanvas.addEventListener('mouseleave', () => {
+                                clipHoveredIdx = -1;
+                                drawClipViz();
+                                showClipPreview(-1, 0, 0);
+                            });
+
+                            // Redraw on theme change
+                            const observer = new MutationObserver(() => drawClipViz());
+                            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+                            // Redraw on resize
+                            window.addEventListener('resize', () => {
+                                const dpr = window.devicePixelRatio || 1;
+                                clipCanvas.width = container.offsetWidth * dpr;
+                                clipCanvas.height = container.offsetHeight * dpr;
+                                clipCtx.scale(dpr, dpr);
+                                drawClipViz();
+                            });
+                        }
+
+                        // Initialize when DOM is ready
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initClipViz);
+                        } else {
+                            initClipViz();
+                        }
+                    })();
+                    </script>
+
+                    <div class="opening-figure">
+                        <div class="figure-title">Figure 8: Principal Components of Variation</div>
+                        <div style="text-align: center; padding: 20px;">
+                            <img src="images/dns_pca_variations.png" alt="PCA variation grid of Tom Cruise portraits" style="max-width: 100%; height: auto; border-radius: 4px;">
+                        </div>
+                        <div class="figure-caption">
+                            <strong>Figure 8.</strong> Portraits sampled along the two principal components of variation
+                            in the embedding space. Moving left-to-right (PC1) and bottom-to-top (PC2) reveals systematic
+                            changes in pose, lighting, and style. DNS discovers these meaningful axes of variation without
+                            any explicit supervision—the structure emerges purely from the diversity pressure.
+                        </div>
+                    </div>
+
                     <p>
                         This is exactly what QD promises: not finding the single best answer, but illuminating the
                         full landscape of good answers. And because DNS requires no grids, bounds, or thresholds,
@@ -483,9 +881,9 @@ def dns(pop, k=3):
                     </p>
                 </section>
 
-                <!-- Section 7: Discussion -->
+                <!-- Section 8: Discussion -->
                 <section id="discussion">
-                    <h2>7. Discussion: What This Means for QD</h2>
+                    <h2>8. Discussion: What This Means for QD</h2>
                     <p>
                         The fundamental innovation of QD algorithms is not their collection mechanisms (grids, archives)
                         but rather <em>how they transform fitness based on local competition</em>. DNS makes this explicit
@@ -505,7 +903,7 @@ def dns(pop, k=3):
 
                     <!-- TODO: Manim animation placeholder -->
                     <div class="opening-figure">
-                        <div class="figure-title">Figure 7: How DNS Works (Animation)</div>
+                        <div class="figure-title">Figure 9: How DNS Works (Animation)</div>
                         <div style="text-align: center; padding: 60px; background: #eee; border: 2px dashed #999;">
                             <p style="color: #666; font-style: italic;">
                                 [PLACEHOLDER: Manim animation]<br><br>
@@ -518,16 +916,16 @@ def dns(pop, k=3):
                             </p>
                         </div>
                         <div class="figure-caption">
-                            <strong>Figure 7.</strong> Animation showing how DNS computes competition scores and selects
+                            <strong>Figure 9.</strong> Animation showing how DNS computes competition scores and selects
                             solutions. Each solution competes only with fitter solutions in its local neighborhood,
                             creating natural niches without explicit grid structures.
                         </div>
                     </div>
                 </section>
 
-                <!-- Section 8: Getting Started -->
+                <!-- Section 9: Getting Started -->
                 <section id="getting-started">
-                    <h2>8. Getting Started</h2>
+                    <h2>9. Getting Started</h2>
                     <p>
                         DNS is available in two popular QD libraries:
                     </p>
@@ -555,7 +953,7 @@ def dns(pop, k=3):
 
                 <!-- Conclusion -->
                 <section id="conclusion">
-                    <h2>9. Conclusion</h2>
+                    <h2>10. Conclusion</h2>
                     <p>
                         The MAP-Elites grid served QD well for over a decade. But as we push toward higher-dimensional
                         descriptor spaces and truly open-ended evolution, the grid becomes a limitation rather than a feature.
@@ -571,7 +969,8 @@ def dns(pop, k=3):
 
                     <div class="acknowledgments">
                         <strong>Acknowledgments.</strong> We thank Luca Grillotti, Hannah Janmohamed, Lisa Coiffard,
-                        Lee Spector, and Antoine Cully for their contributions to the original paper.
+                        Lee Spector, and Antoine Cully for their contributions to the original paper. We also thank
+                        Akarsh Kumar for comments on this blog post.
                     </div>
                 </section>
 

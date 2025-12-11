@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNS Image Picker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #eee; padding: 20px; }
+        .container { display: flex; gap: 20px; }
+        .canvas-wrap { flex: 1; }
+        canvas { background: #fff; cursor: crosshair; border-radius: 4px; }
+        .sidebar { width: 350px; }
+        h2 { margin-bottom: 15px; color: #00d9ff; }
+        .selected-list {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .selected-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: #0f3460;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .selected-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
+        .selected-item .info { flex: 1; font-size: 12px; }
+        .selected-item button {
+            background: #e63946;
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .actions { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .actions button {
+            background: #00d9ff;
+            border: none;
+            color: #1a1a2e;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .actions button:hover { background: #00b8d4; }
+        .actions button.primary {
+            background: #4ade80;
+            font-size: 14px;
+        }
+        .actions button.primary:hover { background: #22c55e; }
+        .hover-preview {
+            position: fixed;
+            pointer-events: none;
+            background: #16213e;
+            border: 2px solid #00d9ff;
+            border-radius: 4px;
+            padding: 5px;
+            display: none;
+            z-index: 1000;
+        }
+        .hover-preview img { width: 120px; height: 120px; object-fit: cover; }
+        .hover-preview p { font-size: 11px; text-align: center; margin-top: 5px; }
+        #output {
+            margin-top: 15px;
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 11px;
+            white-space: pre-wrap;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .instructions {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .instructions strong { color: #00d9ff; }
+    </style>
+</head>
+<body>
+    <h1 style="margin-bottom: 20px;">DNS Header Image Picker</h1>
+
+    <div class="instructions">
+        <strong>Instructions:</strong> Click on points to select images for the header banner.
+        Selected images will have arrows pointing to their location in the t-SNE plot.
+        When done, click <strong>"Generate Header Banner"</strong> to create the image.
+    </div>
+
+    <div class="container">
+        <div class="canvas-wrap">
+            <canvas id="canvas" width="700" height="700"></canvas>
+        </div>
+        <div class="sidebar">
+            <h2>Selected Images (<span id="count">0</span>)</h2>
+            <div class="selected-list" id="selected-list"></div>
+            <div class="actions">
+                <button class="primary" onclick="generateHeader()">Generate Header Banner</button>
+                <button onclick="copyIndices()">Copy Indices</button>
+                <button onclick="clearAll()">Clear All</button>
+                <button onclick="exportJSON()">Export JSON</button>
+            </div>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <div class="hover-preview" id="hover-preview">
+        <img id="hover-img" src="">
+        <p id="hover-info"></p>
+    </div>
+
+    <script>
+        let data = null;
+        let selected = [];
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const PADDING = 30;
+
+        // Load data
+        console.log('Loading metadata...');
+        fetch('dns_clip_web_viewer/metadata.json')
+            .then(r => {
+                console.log('Fetch response:', r.status);
+                if (!r.ok) throw new Error('Failed to load: ' + r.status);
+                return r.json();
+            })
+            .then(d => {
+                data = d;
+                console.log('Loaded', data.n, 'images');
+                console.log('Sample coord:', data.coords[0]);
+                draw();
+            })
+            .catch(err => {
+                console.error('Error loading data:', err);
+                alert('Failed to load data. Make sure you are running a local server:\n\ncd /Users/rboldi/dns-blog && python3 -m http.server 8080\n\nThen open http://localhost:8080/image_picker.html');
+            });
+
+        function viridis(t) {
+            t = Math.max(0, Math.min(1, t));
+            const colors = [
+                [68, 1, 84], [72, 40, 120], [62, 74, 137], [49, 104, 142],
+                [38, 130, 142], [31, 158, 137], [53, 183, 121], [110, 206, 88],
+                [181, 222, 43], [253, 231, 37]
+            ];
+            const idx = t * (colors.length - 1);
+            const i = Math.floor(idx);
+            const f = idx - i;
+            if (i >= colors.length - 1) return `rgb(${colors[colors.length-1].join(',')})`;
+            const c1 = colors[i], c2 = colors[i + 1];
+            return `rgb(${Math.round(c1[0] + f * (c2[0] - c1[0]))},${Math.round(c1[1] + f * (c2[1] - c1[1]))},${Math.round(c1[2] + f * (c2[2] - c1[2]))})`;
+        }
+
+        function draw() {
+            if (!data) return;
+            ctx.fillStyle = '#fafafa';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const minFit = Math.min(...data.fitness);
+            const maxFit = Math.max(...data.fitness);
+
+            for (let i = 0; i < data.n; i++) {
+                const [nx, ny] = data.coords[i];
+                const x = PADDING + nx * (canvas.width - 2 * PADDING);
+                const y = PADDING + (1 - ny) * (canvas.height - 2 * PADDING);
+                const fitNorm = (data.fitness[i] - minFit) / (maxFit - minFit);
+
+                ctx.beginPath();
+                ctx.arc(x, y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = viridis(fitNorm);
+                ctx.fill();
+            }
+
+            for (const idx of selected) {
+                const [nx, ny] = data.coords[idx];
+                const x = PADDING + nx * (canvas.width - 2 * PADDING);
+                const y = PADDING + (1 - ny) * (canvas.height - 2 * PADDING);
+
+                ctx.beginPath();
+                ctx.arc(x, y, 8, 0, Math.PI * 2);
+                ctx.fillStyle = '#e63946';
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+        }
+
+        function getPointAt(mx, my) {
+            if (!data) return -1;
+            let closest = -1, minDist = 20;
+            for (let i = 0; i < data.n; i++) {
+                const [nx, ny] = data.coords[i];
+                const x = PADDING + nx * (canvas.width - 2 * PADDING);
+                const y = PADDING + (1 - ny) * (canvas.height - 2 * PADDING);
+                const dist = Math.sqrt((mx - x) ** 2 + (my - y) ** 2);
+                if (dist < minDist) {
+                    minDist = dist;
+                    closest = i;
+                }
+            }
+            return closest;
+        }
+
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            const idx = getPointAt(mx, my);
+
+            if (idx >= 0) {
+                if (selected.includes(idx)) {
+                    selected = selected.filter(i => i !== idx);
+                    console.log('Removed:', idx);
+                } else {
+                    selected.push(idx);
+                    console.log('Selected:', idx, '| Coords:', data.coords[idx], '| Fitness:', data.fitness[idx]);
+                }
+                updateSelectedList();
+                draw();
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            const idx = getPointAt(mx, my);
+
+            const preview = document.getElementById('hover-preview');
+            if (idx >= 0) {
+                document.getElementById('hover-img').src = `dns_clip_web_viewer/images/${idx}.jpg`;
+                document.getElementById('hover-info').textContent = `#${idx} | Fit: ${data.fitness[idx].toFixed(3)}`;
+                preview.style.display = 'block';
+                preview.style.left = (e.clientX + 15) + 'px';
+                preview.style.top = (e.clientY - 60) + 'px';
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            document.getElementById('hover-preview').style.display = 'none';
+        });
+
+        function updateSelectedList() {
+            const list = document.getElementById('selected-list');
+            document.getElementById('count').textContent = selected.length;
+
+            list.innerHTML = selected.map((idx, i) => `
+                <div class="selected-item">
+                    <img src="dns_clip_web_viewer/images/${idx}.jpg">
+                    <div class="info">
+                        <strong>#${idx}</strong><br>
+                        Fit: ${data.fitness[idx].toFixed(3)}<br>
+                        Pos: (${data.coords[idx][0].toFixed(2)}, ${data.coords[idx][1].toFixed(2)})
+                    </div>
+                    <button onclick="removeItem(${idx})">X</button>
+                </div>
+            `).join('');
+        }
+
+        function removeItem(idx) {
+            selected = selected.filter(i => i !== idx);
+            updateSelectedList();
+            draw();
+        }
+
+        function clearAll() {
+            selected = [];
+            updateSelectedList();
+            draw();
+        }
+
+        function copyIndices() {
+            const text = selected.join(', ');
+            navigator.clipboard.writeText(text);
+            document.getElementById('output').textContent = 'Copied indices: ' + text;
+        }
+
+        function exportJSON() {
+            const exportData = selected.map(idx => ({
+                idx: idx,
+                coord: data.coords[idx],
+                fitness: data.fitness[idx]
+            }));
+            const text = JSON.stringify(exportData, null, 2);
+            navigator.clipboard.writeText(text);
+            document.getElementById('output').textContent = 'Copied JSON to clipboard';
+        }
+
+        function generateHeader() {
+            if (selected.length === 0) {
+                alert('Please select some images first!');
+                return;
+            }
+
+            // Save selected indices to a file via download
+            const indices = JSON.stringify(selected);
+
+            // Create the Python command
+            const cmd = `cd /Users/rboldi/dns-blog && source .venv/bin/activate && python3 generate_header.py '${indices}'`;
+
+            navigator.clipboard.writeText(cmd);
+
+            document.getElementById('output').innerHTML = `
+<strong>Selected ${selected.length} images!</strong>
+
+Command copied to clipboard. Run in terminal:
+
+${cmd}
+
+Or save indices: ${selected.join(', ')}`;
+
+            console.log('Selected indices:', selected);
+            console.log('Run:', cmd);
+        }
+    </script>
+</body>
+</html>
