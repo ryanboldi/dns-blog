@@ -54,58 +54,6 @@
     --line-height: 1.6;
 }
 
-/* Dark mode colors */
-[data-theme="dark"] {
-    --bg-paper: #1a1a1a;
-    --bg-subtle: #242424;
-    --text-primary: #e0e0e0;
-    --text-secondary: #b0b0b0;
-    --border-color: #444444;
-    --border-light: #333333;
-    --accent: #6cacff;
-    --accent-light: #8ec4ff;
-}
-
-/* Theme toggle button */
-.theme-toggle {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 1000;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.theme-toggle:hover {
-    background: var(--border-light);
-}
-
-.theme-toggle .icon-sun,
-.theme-toggle .icon-moon {
-    display: none;
-}
-
-:root .theme-toggle .icon-moon {
-    display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-sun {
-    display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-moon {
-    display: none;
-}
-
 body {
     font-family: var(--font-serif);
     background: var(--bg-paper);
@@ -323,14 +271,6 @@ header {
     background: #ffffff;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
-}
-
-[data-theme="dark"] .wide-figure {
-    background: #ffffff;
-}
-
-[data-theme="dark"] .opening-figure {
-    background: #ffffff;
 }
 
 .figure-title {

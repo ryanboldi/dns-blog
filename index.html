@@ -20,12 +20,6 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <span class="icon-sun">&#9728;</span>
-        <span class="icon-moon">&#9790;</span>
-    </button>
-
     <!-- Main Content -->
     <div class="main-wrapper">
         <!-- Header teaser banner -->
@@ -719,9 +713,8 @@ def dns(pop, k=3):
                             const container = document.querySelector('.clip-viz-main');
                             const width = container.offsetWidth;
                             const height = container.offsetHeight;
-                            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
-                            clipCtx.fillStyle = isDark ? '#242424' : '#fafafa';
+                            clipCtx.fillStyle = '#fafafa';
                             clipCtx.fillRect(0, 0, width, height);
 
                             const minFit = Math.min(...clipData.fitness);
@@ -740,7 +733,7 @@ def dns(pop, k=3):
                                 clipCtx.fill();
 
                                 if (i === clipHoveredIdx) {
-                                    clipCtx.strokeStyle = isDark ? '#fff' : '#000';
+                                    clipCtx.strokeStyle = '#000';
                                     clipCtx.lineWidth = 2;
                                     clipCtx.stroke();
                                 }
@@ -837,10 +830,6 @@ def dns(pop, k=3):
                                 drawClipViz();
                                 showClipPreview(-1, 0, 0);
                             });
-
-                            // Redraw on theme change
-                            const observer = new MutationObserver(() => drawClipViz());
-                            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
                             // Redraw on resize
                             window.addEventListener('resize', () => {
@@ -968,9 +957,7 @@ def dns(pop, k=3):
                     </p>
 
                     <div class="acknowledgments">
-                        <strong>Acknowledgments.</strong> We thank Luca Grillotti, Hannah Janmohamed, Lisa Coiffard,
-                        Lee Spector, and Antoine Cully for their contributions to the original paper. We also thank
-                        Akarsh Kumar for comments on this blog post.
+                        <strong>Acknowledgments.</strong> We thank Akarsh Kumar for comments on this blog post.
                     </div>
                 </section>
 
@@ -990,7 +977,5 @@ def dns(pop, k=3):
             </article>
         </main>
     </div>
-
-    <script src="js/theme.js"></script>
 </body>
 </html>
