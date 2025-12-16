@@ -59,7 +59,7 @@ body {
     background: var(--bg-paper);
     color: var(--text-primary);
     line-height: var(--line-height);
-    font-size: 11pt;
+    font-size: 13pt;
     overflow-x: hidden;
 }
 
@@ -217,7 +217,7 @@ header {
 
 /* Abstract/Hook */
 .hook {
-    font-size: 11pt;
+    font-size: 13pt;
     line-height: var(--line-height);
     color: var(--text-primary);
     padding: 20px;
@@ -240,7 +240,7 @@ header {
 }
 
 .hook-followup p {
-    font-size: 11pt;
+    font-size: 13pt;
     line-height: var(--line-height);
     text-align: justify;
 }
@@ -252,10 +252,6 @@ header {
     max-width: 1200px;
     padding: 20px 40px;
     background: #ffffff;
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
-    border-left: none;
-    border-right: none;
     border-radius: 0;
     position: relative;
     left: 50%;
@@ -269,8 +265,6 @@ header {
     margin: 30px auto;
     padding: 20px 60px;
     background: #ffffff;
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
 }
 
 .figure-title {
