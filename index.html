@@ -33,10 +33,10 @@
             <div class="author-list">
                 <a href="https://ryanboldi.github.io" class="author-link highlighted">Ryan Bahlous-Boldi*<sup>1</sup></a>
                 <span class="separator">·</span>
-                <a href="https://maxencefaldor.github.io" class="author-link highlighted">Maxence Faldor*<sup>2</sup></a>
+                <a href="https://github.com/maxencefaldor" class="author-link highlighted">Maxence Faldor*<sup>2</sup></a>
             </div>
             <div class="author-list secondary">
-                <a href="https://lucagrillotti.github.io" class="author-link">Luca Grillotti<sup>2</sup></a>
+                <a href="https://luca.grillotti.com" class="author-link">Luca Grillotti<sup>2</sup></a>
                 <span class="separator">·</span>
                 <a href="#" class="author-link">Hannah Janmohamed<sup>2</sup></a>
                 <span class="separator">·</span>
@@ -44,7 +44,7 @@
                 <span class="separator">·</span>
                 <a href="https://lspector.github.io" class="author-link">Lee Spector<sup>3</sup></a>
                 <span class="separator">·</span>
-                <a href="https://www.antoinecully.com" class="author-link">Antoine Cully<sup>2</sup></a>
+                <a href="https://profiles.imperial.ac.uk/a.cully" class="author-link">Antoine Cully<sup>2</sup></a>
             </div>
             <div class="affiliations">
                 <span class="affiliation-item"><sup>1</sup>MIT CSAIL</span>
@@ -61,6 +61,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     Code
                 </a>
+                <a href="https://github.com/adaptive-intelligent-robotics/QDax/blob/main/qdax/core/dns.py" class="paper-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    QDax
+                </a>
             </div>
 
             <div class="paper-authors">
@@ -70,16 +74,15 @@
 
         <style>
             .header-banner {
-                max-width: 1600px;
-                margin: 0 auto 20px;
-                padding-top: 40px;
+                max-width: 1200px;
+                margin: 0 auto 24px;
+                padding-top: 48px;
                 text-align: center;
             }
             .header-banner img {
                 max-width: 100%;
                 height: auto;
-                border-radius: 4px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                border-radius: 2px;
             }
         </style>
 
@@ -91,7 +94,7 @@
             </div>
 
             <!-- Tom Cruise Teaser - moved up for immediate impact -->
-            <section id="teaser" style="margin-top: 40px; max-width: 880px; margin-left: auto; margin-right: auto; padding: 0 20px;">
+            <section id="teaser" style="margin-top: 48px; max-width: 768px; margin-left: auto; margin-right: auto; padding: 0 24px;">
                 <h2>The Proof: 5,000 Diverse Portraits of Tom Cruise</h2>
                 <p>
                     When you ask Stable Diffusion to generate "a portrait of Tom Cruise," you get the same image
@@ -103,7 +106,7 @@
                 <p>
                     The setup is simple. We evolve the initial noise that Stable Diffusion begins its denoising process from.
                     For each generated image, we compute its CLIP embedding. The <strong>fitness</strong> is the CLIP similarity
-                    between the image and the text "Tom Cruise" (higher means it looks more like him). The <strong>behavior descriptor</strong>
+                    between the image and the text "Tom Cruise" (higher means it looks more like him). The <strong>descriptor</strong>
                     is the 512-dimensional CLIP embedding itself, capturing visual attributes like pose, lighting, and style.
                 </p>
                 <p>
@@ -430,9 +433,9 @@
         </div>
 
         <main>
-            <section style="max-width: 880px; margin-left: auto; margin-right: auto; padding: 0 40px;">
+            <section style="max-width: 768px; margin-left: auto; margin-right: auto; padding: 0 24px;">
                 <p>
-                    This couldn't be done with traditional QD methods. CLIP embeddings have 512 dimensions: even with just 2 bins per dimension, you'd need $2^{512}$ grid cells, more than atoms in the observable universe. DNS doesn't need a grid; it works directly in continuous high-dimensional space.
+                    This couldn't be done with traditional QD methods. CLIP embeddings don't have known bounds, so we can't discretize the descriptor space into a grid. DNS doesn't need one; it works directly in continuous, unbounded space.
                 </p>
                 <p>
                     <strong>How does it work?</strong> Keep reading to learn how DNS breaks free from the grid.
@@ -542,55 +545,53 @@
 
                     <h3>3.1. The Competition Function</h3>
                     <p>
-                        For each solution $i$ in the population, we compute a "dominated novelty" score in three steps:
+                        Both MAP-Elites and DNS can be understood as genetic algorithms with different <em>competition functions</em>
+                        that transform fitness values before selection. Here's how they compare:
                     </p>
 
-                    <div class="algorithm-box" id="algorithm-1">
-                        <div class="algorithm-title">Algorithm 1: Dominated Novelty Search Competition</div>
-                        <div class="algorithm-input">
-                            <strong>Input:</strong> Population $\mathbf{X}$ with fitness values $\mathbf{f}$ and descriptors $\mathbf{d}$, locality parameter $k$
+                    <!-- Side by side comparison -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 32px 0;">
+                        <div class="algorithm-box">
+                            <div class="algorithm-title">MAP-Elites Competition</div>
+                            <ol>
+                                <li>Each solution $x_i$ is assigned to its nearest centroid based on its descriptor, partitioning the population into grid cells.</li>
+                                <li>Within each cell, only the highest-fitness solution $x_k$ maintains its fitness $\tilde{f}_k = f_k$. All others are eliminated: $\tilde{f}_j = -\infty$ for $j \neq k$.</li>
+                            </ol>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-top: 16px;">
+                                <strong>Requirement:</strong> Predefined grid with known bounds.
+                            </p>
                         </div>
-                        <div class="algorithm-output">
-                            <strong>Output:</strong> Competition fitness $\tilde{f}_i$ for each solution $i$
+                        <div class="algorithm-box">
+                            <div class="algorithm-title">DNS Competition</div>
+                            <ol>
+                                <li>For each solution $x_i$, compute distances to fitter solutions: $D_i = \{\|d_i - d_j\| \mid f_j > f_i\}$.</li>
+                                <li>Compute dominated novelty $n^+(x_i)$: the average distance to the $k$-nearest-fitter neighbors. Set $\tilde{f}_i = n^+(x_i)$.</li>
+                            </ol>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-top: 16px;">
+                                <strong>Requirement:</strong> None. Works in unbounded, continuous spaces.
+                            </p>
                         </div>
-                        <ol>
-                            <li>
-                                <span class="keyword">For</span> each solution $i$ in population:
-                                <ol type="a">
-                                    <li><strong>Identify dominating solutions:</strong> Find all solutions with superior fitness:
-                                        $$\mathcal{D}_i = \{j \in \{1, \ldots, N\} \mid f_j > f_i\}$$
-                                    </li>
-                                    <li><strong>Compute descriptor distances:</strong> Calculate pairwise distances in descriptor space:
-                                        $$d_{ij} = \|\mathbf{d}_i - \mathbf{d}_j\| \quad \forall j \in \mathcal{D}_i$$
-                                    </li>
-                                    <li><strong>Calculate dominated novelty score:</strong>
-                                        $$\tilde{f}_i = \begin{cases}
-                                            \frac{1}{k} \sum_{j \in \mathcal{K}_i} d_{ij} & \text{if } |\mathcal{D}_i| > 0 \\
-                                            +\infty & \text{otherwise}
-                                        \end{cases}$$
-                                        where $\mathcal{K}_i$ contains indices of $k$ solutions in $\mathcal{D}_i$ with smallest distances.
-                                    </li>
-                                </ol>
-                            </li>
-                            <li><span class="keyword">Return</span> competition fitness $\tilde{\mathbf{f}}$</li>
-                        </ol>
                     </div>
 
                     <p>
-                        The intuition is elegant: <strong>a solution survives if it's either the best at what it does,
-                        OR if it's doing something different from solutions that are better than it.</strong>
+                        The key insight: MAP-Elites discretizes space and keeps one winner per cell. DNS computes distances to better solutions and rewards being far from them. No grid, no bounds, no discretization.
+                    </p>
+
+                    <p>
+                        The intuition is simple: <strong>you get eliminated if there's a better solution nearby.</strong>
+                        To be discarded, two conditions must hold: (1) a solution with higher fitness exists, AND (2) it's close to you in descriptor space.
+                        If either condition fails, you survive.
                     </p>
                     <ul>
-                        <li><strong>Path 1: Be the best.</strong> If no one has higher fitness than you ($|\mathcal{D}_i| = 0$),
-                            you automatically survive with infinite competition fitness.</li>
-                        <li><strong>Path 2: Be different.</strong> If better solutions exist, you survive by being far away
+                        <li><strong>Survive by being good:</strong> If no one nearby has higher fitness than you, you're safe.
+                            This includes being the global best, but also just being the best in your local neighborhood.</li>
+                        <li><strong>Survive by being different:</strong> Even if better solutions exist, you survive by being far away
                             from them in descriptor space. The farther you are from your $k$ nearest fitter neighbors,
                             the higher your competition fitness.</li>
                     </ul>
-
-                    Another easy way to think about this is by thinking about the conditions under which a solution is eliminated.
-                    In general, to be eleminated, there must be a solution that has a higher fitness score than you, and is also close-by.
-                    As such, individuals that don't contribute to the population through performance nor diversity are eliminated.
+                    <p>
+                        Solutions that contribute neither quality nor diversity, those that are both worse AND similar to better solutions, are eliminated.
+                    </p>
 
                     <h3>3.2. The Full Algorithm</h3>
                     <p>
@@ -628,74 +629,9 @@
                     </p>
                 </section>
 
-                <!-- Section 4: Code Comparison -->
-                <section id="code">
-                    <h2>4. Just 10 Lines of Code</h2>
-                    <p>
-                        Like MAP-Elites, DNS is remarkably simple to implement. Here's a side-by-side comparison showing
-                        that DNS is just as elegant as the algorithms it replaces:
-                    </p>
-
-                    <!-- Code comparison figure -->
-                    <div class="opening-figure">
-                        <div class="figure-title">Code Comparison: MAP-Elites vs DNS</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 20px 60px; max-width: 1000px; margin: 0 auto;">
-                            <div style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 4px; font-family: monospace; font-size: 10pt;">
-                                <div style="color: #569cd6; margin-bottom: 8px;"># MAP-Elites</div>
-                                <pre style="margin: 0; white-space: pre-wrap;">
-def map_elites(pop, grid):
-    for gen in range(N_GENS):
-        # Select and mutate
-        children = mutate(select(pop))
-        # Evaluate
-        fit, desc = evaluate(children)
-        # Add to grid
-        for i, (f, d) in enumerate(zip(fit, desc)):
-            cell = discretize(d, grid)
-            if f > grid[cell].fitness:
-                grid[cell] = children[i]
-    return grid</pre>
-                            </div>
-                            <div style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 4px; font-family: monospace; font-size: 10pt;">
-                                <div style="color: #569cd6; margin-bottom: 8px;"># Dominated Novelty Search</div>
-                                <pre style="margin: 0; white-space: pre-wrap;">
-def dns(pop, k=3):
-    for gen in range(N_GENS):
-        # Select and mutate
-        children = mutate(select(pop))
-        # Evaluate
-        fit, desc = evaluate(children)
-        # Merge and compete
-        pop = concat(pop, children)
-        scores = dominated_novelty(pop, k)
-        # Keep top N
-        pop = top_n(pop, scores, N)
-    return pop</pre>
-                            </div>
-                        </div>
-                        <div class="figure-caption">
-                            <strong>Figure 2.</strong> MAP-Elites requires discretizing the descriptor space into a grid.
-                            DNS replaces this with a continuous competition function: no grid, no bounds, no discretization.
-                        </div>
-                    </div>
-
-                    <p>
-                        The key difference is that MAP-Elites uses <code>discretize()</code> and a grid structure, while DNS uses
-                        <code>dominated_novelty()</code>, a function that computes competition scores based on distances
-                        to fitter neighbors. Everything else is the same standard evolutionary loop.
-                    </p>
-                    <p>
-                        DNS is available in
-                        <strong><a href="https://github.com/adaptive-intelligent-robotics/QDax/blob/main/qdax/core/dns.py">QDax</a></strong> (JAX-based, GPU-accelerated) and
-                        coming soon to <strong><a href="https://github.com/ryanboldi/pyribs/blob/dns/ribs/archives/_dns_archive.py">PyRibs</a></strong> (Python, NumPy-based).
-                        Switching from MAP-Elites to DNS is typically a one-line change: replace the archive/grid
-                        mechanism with DNS competition, and you're ready to go.
-                    </p>
-                </section>
-
-                <!-- Section 5: Benchmark Results -->
+                <!-- Section 4: Benchmark Results -->
                 <section id="benchmarks">
-                    <h2>5. Benchmark Results</h2>
+                    <h2>4. Benchmark Results</h2>
                     <p>
                         We evaluated DNS against MAP-Elites, Threshold-Elites, and Cluster-Elites on standard
                         continuous control benchmarks including Walker (bipedal locomotion), Ant (quadrupedal movement),
@@ -726,15 +662,15 @@ def dns(pop, k=3):
                     </p>
                 </section>
 
-                <!-- Section 6: High-Dimensional Descriptor Spaces -->
+                <!-- Section 5: High-Dimensional Descriptor Spaces -->
                 <section id="high-dim">
-                    <h2>6. Scaling to High-Dimensional Descriptor Spaces</h2>
+                    <h2>5. Scaling to High-Dimensional Descriptor Spaces</h2>
                     <p>
                         Standard benchmarks use 2-4 dimensional descriptor spaces where grids are feasible.
                         But what happens when we push into territory where grids become impractical?
                     </p>
 
-                    <h3>6.1. The Kheperax Maze Challenge</h3>
+                    <h3>5.1. The Kheperax Maze Challenge</h3>
                     <p>
                         We tested DNS on Kheperax, a maze navigation task where agents must
                         traverse complex mazes. Unlike traditional maze tasks that only consider final position,
@@ -747,7 +683,7 @@ def dns(pop, k=3):
                         significant challenges for grid-based methods.
                     </p>
 
-                    <h3>6.2. Why Grids Struggle</h3>
+                    <h3>5.2. Why Grids Struggle</h3>
 
                     <ul>
                         <li><strong>Exponential cell growth:</strong> A grid with just 10 bins per dimension
@@ -759,7 +695,7 @@ def dns(pop, k=3):
                         <li><strong>Assume a fixed grid size:</strong> In truly open-ended environments, the descriptor space constantly changes as the population explores and develops.</li>
                     </ul>
 
-                    <h3>6.3. Scaling with Dimensionality</h3>
+                    <h3>5.3. Scaling with Dimensionality</h3>
                     <div class="opening-figure">
                         <div class="figure-title">Figure 4: Performance vs. Descriptor Dimensionality</div>
                         <div style="text-align: center; padding: 20px;">
@@ -779,7 +715,7 @@ def dns(pop, k=3):
                         stepping-stone discovery even in high dimensions.
                     </p>
 
-                    <h3>6.4. Unsupervised Descriptors</h3>
+                    <h3>5.4. Unsupervised Descriptors</h3>
                     <p>
                         What if you don't know the descriptor space at all? In unsupervised QD (following the
                         AURORA algorithm), descriptors are learned as low-dimensional embeddings during evolution.
@@ -807,9 +743,9 @@ def dns(pop, k=3):
                     </p>
                 </section>
 
-                <!-- Section 7: Discussion -->
+                <!-- Section 6: Discussion -->
                 <section id="discussion">
-                    <h2>7. What This Means for QD</h2>
+                    <h2>6. What This Means for QD</h2>
                     <p>
                         The fundamental innovation of QD algorithms is not their collection mechanisms (grids, archives)
                         but rather <em>how they transform fitness based on local competition</em>. DNS makes this explicit
@@ -826,41 +762,40 @@ def dns(pop, k=3):
                             fixed bounds or a predefined grid, so it can illuminate the descriptor space even as the underlying
                             representation shifts. This enables fully unsupervised QD where both the quality measure and the
                             diversity measure are learned.</li>
-                        <li><strong>Enabling open-ended evolution:</strong> Open-ended systems require algorithms that work in unbounded, changing descriptor spaces. DNS meets these requirements: it needs no predefined bounds, adapts to learned embeddings that shift during evolution, and scales to high dimensions where grids are impossible. LeniaBreeder demonstrates this in practice, using DNS to generate unbounded diversity in artificial life.</li>
+                        <li><strong>Enabling open-ended evolution:</strong> Open-ended systems require algorithms that work in unbounded, changing descriptor spaces. DNS meets these requirements: it needs no predefined bounds, adapts to learned embeddings that shift during evolution, and scales to high dimensions where grids are impossible. Leniabreeder demonstrates this in practice, using DNS to generate unbounded diversity in artificial life.</li>
                         <li><strong>Simpler implementations:</strong> No grid management, no archive structures, no discretization
                             logic. Just a fitness transformation and standard evolutionary selection.</li>
                     </ul>
 
-                    <h3>7.1. DNS in the Wild: LeniaBreeder</h3>
+                    <h3>6.1. DNS in the Wild: Leniabreeder</h3>
                     <p>
-                        DNS has been used in <a href="https://leniabreeder.github.io/" target="_blank"><strong>LeniaBreeder</strong></a>,
+                        DNS has been used in <a href="https://leniabreeder.github.io/" target="_blank"><strong>Leniabreeder</strong></a>,
                         a framework that automatically discovers diverse self-organizing patterns in Lenia, a continuous cellular automaton that produces lifelike artificial creatures.
                     </p>
 
                     <div class="opening-figure">
-                        <div class="figure-title">Figure 6: LeniaBreeder - Discovering Artificial Life with DNS</div>
+                        <div class="figure-title">Figure 6: Leniabreeder - Discovering Artificial Life with DNS</div>
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/LeniaBreeder.png" alt="LeniaBreeder diverse patterns" style="max-width: 60%; height: auto; border-radius: 4px;">
+                            <img src="images/Leniabreeder.png" alt="Leniabreeder diverse patterns" style="max-width: 60%; height: auto; border-radius: 4px;">
                         </div>
                         <div class="figure-caption">
-                            <strong>Figure 6.</strong> LeniaBreeder evolves in learned embedding spaces where grids are impossible,
+                            <strong>Figure 6.</strong> Leniabreeder evolves in learned embedding spaces where grids are impossible,
                             generating diverse autonomous patterns exhibiting emergent complexity. The framework shows empirical
                             evidence of unbounded diversity, advancing toward truly open-ended evolution.
                         </div>
                     </div>
 
                     <p>
-                        By evolving in learned embedding spaces, LeniaBreeder can discover patterns that weren't anticipated
+                        By evolving in learned embedding spaces, Leniabreeder can discover patterns that weren't anticipated
                         in advance. This is exactly the kind of open-ended exploration that DNS enables: no predefined grid,
                         no fixed bounds, just evolution adapting to whatever structure emerges.
                     </p>
 
-                    <h3>7.2. The Best of Both Worlds</h3>
+                    <h3>6.2. The Best of Both Worlds</h3>
                     <p>
-                        Where does DNS sit in the landscape of evolutionary algorithms? Recent work by Faldor et al. [5] used
-                        meta-learning to discover novel QD algorithms and mapped out the Pareto front between fitness and novelty.
-                        DNS achieves the best of both worlds: near Novelty Search levels of diversity while maintaining
-                        near GA/MAP-Elites levels of performance.
+                        Where does DNS sit in the landscape of evolutionary algorithms? On a set of black-box optimization tasks,
+                        we can measure both the fitness and novelty of final populations. DNS achieves the best of both worlds:
+                        near Novelty Search levels of diversity while maintaining near GA/MAP-Elites levels of performance.
                     </p>
 
                     <div class="opening-figure">
@@ -870,7 +805,7 @@ def dns(pop, k=3):
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 7.</strong> DNS (red star) achieves both high novelty (near Novelty Search) and high fitness
-                            (near GA and MAP-Elites), placing it on the Pareto front of discovered QD algorithms. Figure from Faldor et al. [5].
+                            (near GA and MAP-Elites), placing it on the Pareto front.
                         </div>
                     </div>
 
@@ -878,7 +813,7 @@ def dns(pop, k=3):
 
                 <!-- Conclusion -->
                 <section id="conclusion">
-                    <h2>8. Conclusion</h2>
+                    <h2>7. Conclusion</h2>
                     <p>
                         The MAP-Elites grid served QD well for over a decade. But as we push toward higher-dimensional
                         descriptor spaces and truly open-ended evolution, the grid becomes a limitation rather than a feature.
@@ -909,8 +844,6 @@ def dns(pop, k=3):
                         <p id="ref-3">[3] Lehman, J., & Stanley, K. O. (2011). Abandoning objectives: Evolution through the search for novelty alone. <em>Evolutionary Computation</em>, 19(2), 189-223.</p>
 
                         <p id="ref-4">[4] Fontaine, M. C., & Nikolaidis, S. (2023). Differentiable Quality Diversity. <em>NeurIPS</em>.</p>
-
-                        <p id="ref-5">[5] Faldor, M., Lange, R. T., & Cully, A. (2025). Discovering Quality-Diversity Algorithms via Meta-Black-Box Optimization. <em>arXiv preprint arXiv:2502.02190</em>.</p>
                     </div>
                 </section>
             </article>
