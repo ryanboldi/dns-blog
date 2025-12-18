@@ -67,8 +67,8 @@
                 </a>
             </div>
 
-            <div class="paper-authors">
-                GECCO 2025
+            <div class="paper-authors" style="font-size: 18px; font-weight: 700; color: #2e7d32; font-style: normal;">
+                🦎 GECCO 2025
             </div>
         </header>
 
@@ -117,19 +117,10 @@
             </section>
         </main>
 
-        <!-- Interactive CLIP space visualization - Wide figure -->
-        <div class="wide-figure" id="clip-viz-figure">
-            <div class="figure-title" style="font-size: 24pt; margin-bottom: 20px;">Dominated Novelty Search for Images of Tom Cruise</div>
+        <!-- Interactive CLIP space visualization -->
+        <div class="wide-figure" id="clip-viz-figure" style="max-width: var(--content-max-width); margin: 48px auto;">
+            <div class="figure-title" style="font-size: 20px; margin-bottom: 8px; text-transform: none; font-weight: 700; color: rgba(0, 0, 0, 0.9);">Dominated Novelty Search for Images of Tom Cruise</div>
                     <div class="clip-viz-container">
-                        <div class="clip-viz-main">
-                            <canvas id="clip-canvas"></canvas>
-                            <div class="clip-hover-preview" id="clip-hover-preview">
-                                <img id="clip-hover-img" src="" alt="">
-                                <div class="clip-hover-info">
-                                    <span class="clip-hover-fitness" id="clip-hover-fitness"></span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="clip-viz-legend">
                             <div class="clip-legend-title">CLIP Score (Fitness)</div>
                             <div class="clip-color-bar"></div>
@@ -144,6 +135,15 @@
                             </div>
                             <p class="clip-instruction">Hover over points to see portraits</p>
                         </div>
+                        <div class="clip-viz-main">
+                            <canvas id="clip-canvas"></canvas>
+                            <div class="clip-hover-preview" id="clip-hover-preview">
+                                <img id="clip-hover-img" src="" alt="">
+                                <div class="clip-hover-info">
+                                    <span class="clip-hover-fitness" id="clip-hover-fitness"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             <div class="figure-caption">
                 DNS spreads solutions across the reachable regions while maintaining high CLIP scores.
@@ -154,16 +154,17 @@
             <style>
                     .clip-viz-container {
                         display: flex;
-                        gap: 20px;
-                        padding: 20px;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 10px 20px 20px;
                         background: var(--bg-paper);
-                        justify-content: center;
-                        align-items: flex-start;
+                        align-items: center;
                     }
                     .clip-viz-main {
                         position: relative;
-                        width: 900px;
-                        height: 900px;
+                        width: 100%;
+                        max-width: 720px;
+                        height: 720px;
                         border: 1px solid var(--border-color);
                         background: var(--bg-subtle);
                     }
@@ -204,8 +205,14 @@
                         color: var(--text-secondary);
                     }
                     .clip-viz-legend {
-                        width: 140px;
-                        padding: 15px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        max-width: 720px;
+                        padding: 8px 20px;
                         background: var(--bg-subtle);
                         border: 1px solid var(--border-light);
                         border-radius: 4px;
@@ -213,30 +220,28 @@
                     .clip-legend-title {
                         font-size: 9pt;
                         font-weight: 700;
-                        margin-bottom: 8px;
                         color: var(--text-primary);
                     }
                     .clip-color-bar {
+                        width: 150px;
                         height: 12px;
                         border-radius: 2px;
                         background: linear-gradient(to right, #440154, #482878, #3e4a89, #31688e, #26828e, #1f9e89, #35b779, #6ece58, #b5de2b, #fde725);
-                        margin-bottom: 4px;
                     }
                     .clip-legend-labels {
                         display: flex;
-                        justify-content: space-between;
+                        gap: 8px;
                         font-size: 8pt;
                         color: var(--text-secondary);
-                        margin-bottom: 15px;
                     }
                     .clip-stats {
+                        display: flex;
+                        gap: 20px;
                         font-size: 9pt;
                         color: var(--text-secondary);
-                        line-height: 1.6;
                     }
                     .clip-stats p {
-                        margin: 4px 0;
-                        text-align: left;
+                        margin: 0;
                     }
                     .clip-stats strong {
                         color: var(--text-primary);
@@ -245,21 +250,14 @@
                         font-size: 8pt;
                         color: var(--text-secondary);
                         font-style: italic;
-                        margin-top: 15px;
-                        text-align: center;
                     }
                     @media (max-width: 1100px) {
-                        .clip-viz-container {
-                            flex-direction: column;
-                            align-items: center;
-                        }
                         .clip-viz-main {
                             width: 100%;
                             max-width: 700px;
                             height: 700px;
                         }
                         .clip-viz-legend {
-                            width: 100%;
                             max-width: 700px;
                         }
                     }
@@ -444,10 +442,9 @@
         </main>
 
         <!-- Figure 1 - Full width outside main -->
-        <div class="wide-figure" id="figure1">
-            <div class="figure-title">Figure 1: Breaking Out of the Grid</div>
+        <div class="wide-figure" id="figure1" style="max-width: 900px;">
             <div style="text-align: center; padding: 20px;">
-                <img src="images/DNS_diagram_v4.pdf" alt="DNS Diagram" style="max-width: 100%; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="images/DNS_diagram_v4.svg" alt="DNS Diagram" style="max-width: 850px !important; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <p style="color: #666; font-style: italic; display: none;">
                     The MAP-Elites grid is limited when the descriptor space: (a) has complex topology,
                     (b) is discontinuous, (c) is unbounded, or (d) is high-dimensional.
@@ -639,10 +636,9 @@
                         different seeds, using Mann-Whitney U tests with Holm-Bonferroni correction for statistical significance.
                     </p>
 
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 3: Benchmark Performance</div>
+                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/all_environments_metrics_plot_4.png" alt="Benchmark Results" style="max-width: 100%; height: auto;">
+                            <img src="images/all_environments_metrics_plot_4.png" alt="Benchmark Results" style="height: auto;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 3.</strong> QD-Score and Coverage over generations across MuJoCo environments.
@@ -696,10 +692,9 @@
                     </ul>
 
                     <h3>5.3. Scaling with Dimensionality</h3>
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 4: Performance vs. Descriptor Dimensionality</div>
+                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/kheperax_other_mean.png" alt="Kheperax Dimensionality Results" style="max-width: 100%; height: auto;">
+                            <img src="images/kheperax_other_mean.png" alt="Kheperax Dimensionality Results" style="height: auto;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 4.</strong> QD-Score and Coverage as descriptor dimensionality increases
@@ -722,10 +717,9 @@
                         The space changes as the algorithm runs, making predefined bounds impossible.
                     </p>
 
-                    <div class="opening-figure">
-                        <div class="figure-title">Figure 5: Unsupervised Descriptor Space</div>
+                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/kheperax_aurora_mean.png" alt="Kheperax AURORA Results" style="max-width: 100%; height: auto;">
+                            <img src="images/kheperax_aurora_mean.png" alt="Kheperax AURORA Results" style="height: auto;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 5.</strong> Performance with learned (unsupervised) descriptors.
@@ -774,7 +768,6 @@
                     </p>
 
                     <div class="opening-figure">
-                        <div class="figure-title">Figure 6: Leniabreeder - Discovering Artificial Life with DNS</div>
                         <div style="text-align: center; padding: 20px;">
                             <img src="images/Lenia_breeder.png" alt="Leniabreeder diverse patterns" style="max-width: 60%; height: auto; border-radius: 4px;">
                         </div>
@@ -799,9 +792,8 @@
                     </p>
 
                     <div class="opening-figure">
-                        <div class="figure-title">Figure 7: DNS on the Novelty-Fitness Pareto Front</div>
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/plot_bbo_pareto_log.pdf" alt="Pareto front showing DNS achieving high novelty and high fitness" style="max-width: 70%; height: auto; border-radius: 4px;">
+                            <img src="images/plot_bbo_pareto_log.svg" alt="Pareto front showing DNS achieving high novelty and high fitness" style="max-width: 70%; height: auto; border-radius: 4px;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 7.</strong> DNS (red star) achieves both high novelty (near Novelty Search) and high fitness
