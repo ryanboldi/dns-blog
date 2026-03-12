@@ -242,11 +242,14 @@ header {
 
 /* Wide figure - breaks out of content container */
 .wide-figure {
-    width: 100%;
-    max-width: 1200px;
-    margin: 24px auto;
+    width: 100vw;
+    max-width: var(--page-width);
+    margin: 24px 0;
     padding: 12px 24px;
     background: #ffffff;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .figure-title {
@@ -453,10 +456,13 @@ hr {
 
 /* Constrain all content images to text width */
 article img,
-section img,
+section img {
+    max-width: 600px !important;
+}
+/* Allow wide/opening figures to use full container width */
 .wide-figure img,
 .opening-figure img {
-    max-width: 600px !important;
+    max-width: 100% !important;
 }
 
 /* Links - Distill style with bottom borders */

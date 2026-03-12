@@ -65,6 +65,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     QDax
                 </a>
+                <a href="https://github.com/icaros-usc/pyribs/blob/master/ribs/archives/_dns_archive.py" class="paper-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    PyRibs
+                </a>
             </div>
 
             <div class="paper-authors" style="font-size: 18px; font-weight: 700; color: #2e7d32; font-style: normal;">
@@ -89,8 +93,8 @@
         <main>
             <!-- Abstract / Hook -->
             <div class="hook" id="hook">
-                Quality-Diversity algorithms have long promised open-ended evolution, but MAP-Elites, the most prominent QD algorithm, has been trapped in a rigid grid that requires predefined bounds and can't scale beyond a handful of dimensions.
-                <strong>Dominated Novelty Search</strong> breaks free. It works in unbounded descriptor spaces, scales to hundreds of dimensions, and adapts to learned embeddings that change during evolution. These are prerequisites for truly open-ended systems, and DNS achieves all three while outperforming MAP-Elites on standard benchmarks.
+                Open-ended evolution requires algorithms that can explore unbounded, high-dimensional spaces without knowing their structure in advance. Existing Quality-Diversity methods like MAP-Elites can't do this, they're trapped in rigid grids that require predefined bounds and collapse in high dimensions.
+                <strong>Dominated Novelty Search</strong> breaks free. It works in unbounded descriptor spaces, scales to hundreds of dimensions, and adapts to learned embeddings that change during evolution,prerequisites for truly open-ended systems.
             </div>
 
             <!-- Tom Cruise Teaser - moved up for immediate impact -->
@@ -118,15 +122,15 @@
         </main>
 
         <!-- Interactive CLIP space visualization -->
-        <div class="wide-figure" id="clip-viz-figure" style="max-width: var(--content-max-width); margin: 48px auto;">
+        <div class="wide-figure" id="clip-viz-figure">
             <div class="figure-title" style="font-size: 20px; margin-bottom: 8px; text-transform: none; font-weight: 700; color: rgba(0, 0, 0, 0.9);">Dominated Novelty Search for Images of Tom Cruise</div>
                     <div class="clip-viz-container">
                         <div class="clip-viz-legend">
                             <div class="clip-legend-title">CLIP Score (Fitness)</div>
-                            <div class="clip-color-bar"></div>
-                            <div class="clip-legend-labels">
-                                <span>Low</span>
-                                <span>High</span>
+                            <div class="clip-legend-bar-row">
+                                <span class="clip-legend-label">Low</span>
+                                <div class="clip-color-bar"></div>
+                                <span class="clip-legend-label">High</span>
                             </div>
                             <div class="clip-stats">
                                 <p><strong>5,000</strong> evolved portraits</p>
@@ -228,9 +232,12 @@
                         border-radius: 2px;
                         background: linear-gradient(to right, #440154, #482878, #3e4a89, #31688e, #26828e, #1f9e89, #35b779, #6ece58, #b5de2b, #fde725);
                     }
-                    .clip-legend-labels {
+                    .clip-legend-bar-row {
                         display: flex;
-                        gap: 8px;
+                        align-items: center;
+                        gap: 6px;
+                    }
+                    .clip-legend-label {
                         font-size: 8pt;
                         color: var(--text-secondary);
                     }
@@ -442,9 +449,9 @@
         </main>
 
         <!-- Figure 1 - Full width outside main -->
-        <div class="wide-figure" id="figure1" style="max-width: 900px;">
+        <div class="wide-figure" id="figure1">
             <div style="text-align: center; padding: 20px;">
-                <img src="images/DNS_diagram_v4.svg" alt="DNS Diagram" style="max-width: 850px !important; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="images/DNS_diagram_v4.svg" alt="DNS Diagram" style="max-width: 110% !important; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <p style="color: #666; font-style: italic; display: none;">
                     The MAP-Elites grid is limited when the descriptor space: (a) has complex topology,
                     (b) is discontinuous, (c) is unbounded, or (d) is high-dimensional.
@@ -496,7 +503,7 @@
                         <li>Works in high-dimensional descriptor spaces where grids are impossible</li>
                         <li>Requires no discretization, bounds, or threshold tuning</li>
                         <li>Adapts to a potentially changing descriptor space as evolution unfolds</li>
-                        <li>Is available in <a href="https://github.com/adaptive-intelligent-robotics/QDax/blob/main/qdax/core/dns.py">QDax</a> and coming soon to <a href="https://github.com/ryanboldi/pyribs/blob/dns/ribs/archives/_dns_archive.py">PyRibs</a>, or can be implemented from scratch in ~10 lines of code</li>
+                        <li>Is available in <a href="https://github.com/adaptive-intelligent-robotics/QDax/blob/main/qdax/core/dns.py">QDax</a> and <a href="https://github.com/icaros-usc/pyribs/blob/master/ribs/archives/_dns_archive.py">PyRibs</a>, or can be implemented from scratch in ~10 lines of code</li>
                     </ul>
                 </section>
 
@@ -630,32 +637,21 @@
                 <section id="benchmarks">
                     <h2>4. Benchmark Results</h2>
                     <p>
-                        We evaluated DNS against MAP-Elites, Threshold-Elites, and Cluster-Elites on standard
-                        continuous control benchmarks including Walker (bipedal locomotion), Ant (quadrupedal movement),
-                        and Ant Blocks (navigation with obstacles). Each experiment was repeated 10 times with
-                        different seeds, using Mann-Whitney U tests with Holm-Bonferroni correction for statistical significance.
+                        On standard continuous control benchmarks, DNS matches or outperforms MAP-Elites,particularly
+                        in environments where the reachable descriptor space doesn't align neatly with a grid.
+                        Full details are in <a href="https://arxiv.org/abs/2502.00593" target="_blank">the paper</a>.
                     </p>
 
-                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
+                    <div class="opening-figure">
                         <div style="text-align: center; padding: 20px;">
                             <img src="images/all_environments_metrics_plot_4.png" alt="Benchmark Results" style="height: auto;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 3.</strong> QD-Score and Coverage over generations across MuJoCo environments.
-                            DNS significantly outperforms Threshold-Elites and Cluster-Elites across all environments ($p < 10^{-9}$),
-                            and outperforms MAP-Elites in Walker and Ant Blocks ($p < 10^{-3}$) where implicit constraints
-                            limit the reachable descriptor space.
+                            DNS outperforms MAP-Elites in Walker and Ant Blocks where implicit constraints
+                            limit the reachable descriptor space, and performs competitively in Ant where the space aligns well with a 2D grid.
                         </div>
                     </div>
-
-                    <p>
-                        <strong>In Walker</strong>, DNS significantly outperforms MAP-Elites because certain foot-contact
-                        proportions (like both feet never touching ground) are infeasible, leaving grid cells empty.
-                        <strong>In Ant Blocks</strong>, obstacles create discontinuous descriptor spaces where some regions
-                        are unreachable, wasting MAP-Elites grid cells.
-                        <strong>In Ant</strong>, DNS and MAP-Elites perform competitively when the descriptor space
-                        (final x,y position) aligns well with a 2D grid.
-                    </p>
                 </section>
 
                 <!-- Section 5: High-Dimensional Descriptor Spaces -->
@@ -692,7 +688,7 @@
                     </ul>
 
                     <h3>5.3. Scaling with Dimensionality</h3>
-                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
+                    <div class="opening-figure">
                         <div style="text-align: center; padding: 20px;">
                             <img src="images/kheperax_other_mean.png" alt="Kheperax Dimensionality Results" style="height: auto;">
                         </div>
@@ -717,7 +713,7 @@
                         The space changes as the algorithm runs, making predefined bounds impossible.
                     </p>
 
-                    <div class="opening-figure" style="max-width: var(--content-max-width); margin: 32px auto;">
+                    <div class="opening-figure">
                         <div style="text-align: center; padding: 20px;">
                             <img src="images/kheperax_aurora_mean.png" alt="Kheperax AURORA Results" style="height: auto;">
                         </div>
@@ -769,7 +765,7 @@
 
                     <div class="opening-figure">
                         <div style="text-align: center; padding: 20px;">
-                            <img src="images/Lenia_breeder.png" alt="Leniabreeder diverse patterns" style="max-width: 60%; height: auto; border-radius: 4px;">
+                            <img src="images/Lenia_breeder.png" alt="Leniabreeder diverse patterns" style="max-width: 30%; height: auto; border-radius: 4px;">
                         </div>
                         <div class="figure-caption">
                             <strong>Figure 6.</strong> Leniabreeder evolves in learned embedding spaces where grids are impossible,
@@ -820,7 +816,7 @@
                     </p>
 
                     <div class="acknowledgments">
-                        <strong>Acknowledgments.</strong> We thank Akarsh Kumar, Itamar Pres, and Navodita Sharma for comments on this blog post.
+                        <strong>Acknowledgments.</strong> We thank Akarsh Kumar, Itamar Pres, Navodita Sharma, and Bryon Tjanaka for comments on this blog post.
                         This work was supported in part by an NSF Graduate Research Fellowship to R.B.
                     </div>
                 </section>
